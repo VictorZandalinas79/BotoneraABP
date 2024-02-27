@@ -3,7 +3,7 @@
 //INICIO CONFIGURACION
 
 $host = 'dbeastbengal.cfo6g0og0ypz.eu-north-1.rds.amazonaws.com';
-$db   = 'dbeastbengal';
+$db   = 'dbeastbengal2324';
 $user = 'admin';
 $pass = 'Villafranca.06';
 $charset = 'utf8mb4';
