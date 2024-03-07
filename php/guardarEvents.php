@@ -1,9 +1,11 @@
 <?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 
 //INICIO CONFIGURACION
 
-$host = 'dbeastbengal.cfo6g0og0ypz.eu-north-1.rds.amazonaws.com';
-$db   = 'dbeastbengal2324';
+$host = 'dbeastbengal2324.cfo6g0og0ypz.eu-north-1.rds.amazonaws.com';
+$db   = 'dbeastbengal';
 $user = 'admin';
 $pass = 'Villafranca.06';
 $charset = 'utf8mb4';
@@ -33,12 +35,24 @@ $options = [
 
 try {
     $pdo = new PDO($dsn, $user, $pass, $options);
+    echo "Conexión exitosa"; // Sólo para fines de depuración, quitar en producción
 } catch (\PDOException $e) {
-    throw new \PDOException($e->getMessage(), (int)$e->getCode());
+    echo "Error de conexión: " . $e->getMessage();
+    exit;
 }
 
-$data = json_decode(file_get_contents("php://input"));
+$data = json_decode(file_get_contents("php://input"), true); // Asegúrate de usar true para obtener un array asociativo
+var_dump($data); // Para verificar la estructura de los datos recibidos
 
+if (isset($data) && is_string($data)) {
+    $lineas = explode("\n", $data);
+} else {
+    // Manejar el caso en que $data no está definido o no es una cadena.
+    $lineas = [];
+}
+
+
+$bandera='no';
 // Separar los datos por líneas
 $lineas = explode("\n", $data);
 
@@ -50,6 +64,8 @@ $codigoSesion = $registro_1[21];
 $stmt = $pdo->prepare("DELETE FROM `bot_events` WHERE codigoSesion = :codigoSesion;");
 $stmt->bindParam(':codigoSesion', $codigoSesion);
 $stmt->execute();
+
+
 
 foreach ($lineas as $linea) {
 
@@ -140,10 +156,9 @@ foreach ($lineas as $linea) {
         try {
             $stmt->execute();
         } catch (PDOException $e) {
-            // Aquí manejas el error. Por ejemplo, puedes guardar un log del error o simplemente ignorarlo.
-            error_log($e->getMessage());
-            // echo "Error al insertar el registro: " . $e->getMessage();
+            echo "Error al insertar el registro: " . $e->getMessage();
         }
+        
     }else {
         // echo "Error al recibir los datos.";
     }
