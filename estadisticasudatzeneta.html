@@ -13,11 +13,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            background-color: #f4f4f4; /* Fondo claro para mejorar la visibilidad */
         }
         .responsive-iframe-container {
             position: relative;
             width: 100%; /* Ajusta el ancho al 100% del contenedor */
-            padding-top: 56.25%; /* Proporción para video HD (16:9) */
+            /* Calcula el padding-top para mantener la relación de aspecto del iframe original */
+            padding-top: calc(540 / 600 * 100%); /* Relación de aspecto del iframe original */
             height: 0; /* Se controla con padding para mantener la relación de aspecto */
         }
         .responsive-iframe {
@@ -32,8 +34,9 @@
 </head>
 <body>
     <div class="responsive-iframe-container">
-        <iframe class="responsive-iframe" src="https://lookerstudio.google.com/embed/reporting/0f6ee996-da76-4518-9289-291adb1dcdc9/page/JcM0D" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+        <iframe class="responsive-iframe" src="https://lookerstudio.google.com/embed/reporting/0f6ee996-da76-4518-9289-291adb1dcdc9/page/p_gn84d88qjd" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox" style="border:0;"></iframe>
     </div>
 </body>
 </html>
+
 
