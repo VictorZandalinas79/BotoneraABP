@@ -9,32 +9,28 @@
             margin: 0;
             padding: 0;
             height: 100%;
-            width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: #f4f4f4; /* Fondo claro para mejorar la visibilidad */
+            background-color: #f4f4f4; /* Mejora la visibilidad con un fondo claro */
         }
         .responsive-iframe-container {
-            position: relative;
-            width: 100%; /* Ajusta el ancho al 100% del contenedor */
-            /* Calcula el padding-top para mantener la relación de aspecto del iframe de 600x450 */
-            padding-top: calc(450 / 600 * 100%); /* Nueva relación de aspecto del iframe */
-            height: 0; /* Se controla con padding para mantener la relación de aspecto */
+            width: 90vw; /* Usa un 90% del ancho de la vista, ajusta según necesidad */
+            height: calc(90vw * (450 / 600)); /* Mantiene la proporción del iframe */
+            max-width: 600px; /* Máximo ancho del iframe */
+            max-height: 450px; /* Máximo alto del iframe, manteniendo la relación de aspecto */
+            border: 0; /* Sin bordes para un look más limpio */
         }
         .responsive-iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
+            width: 100%; /* Completa el ancho del contenedor */
+            height: 100%; /* Completa el alto del contenedor */
+            border: 0; /* Sin bordes para un look más limpio */
         }
     </style>
 </head>
 <body>
     <div class="responsive-iframe-container">
-        <iframe class="responsive-iframe" src="https://lookerstudio.google.com/embed/reporting/0f6ee996-da76-4518-9289-291adb1dcdc9/page/p_gn84d88qjd" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+        <iframe class="responsive-iframe" src="https://lookerstudio.google.com/embed/reporting/0f6ee996-da76-4518-9289-291adb1dcdc9/page/p_gn84d88qjd" frameborder="0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
     </div>
 </body>
 </html>
