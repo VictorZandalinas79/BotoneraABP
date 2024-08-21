@@ -9,32 +9,29 @@
             margin: 0;
             padding: 0;
             height: 100%;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 100%;
+            height: 100%;
             display: flex;
-            align-items: center;
             justify-content: center;
-            background-color: #f4f4f4; /* Mejora la visibilidad con un fondo claro */
+            align-items: center;
         }
-        .responsive-iframe-container {
-            width: 90vw; /* Usa un 90% del ancho de la vista, ajusta según necesidad */
-            height: calc(90vw * (450 / 600)); /* Mantiene la proporción del iframe */
-            max-width: 600px; /* Máximo ancho del iframe */
-            max-height: 450px; /* Máximo alto del iframe, manteniendo la relación de aspecto */
-            border: 0; /* Sin bordes para un look más limpio */
-        }
-        .responsive-iframe {
-            width: 100%; /* Completa el ancho del contenedor */
-            height: 100%; /* Completa el alto del contenedor */
-            border: 0; /* Sin bordes para un look más limpio */
+        .dashboard-iframe {
+            width: 90%;
+            max-width: 800px;
+            height: 600px;
+            border: 0;
         }
     </style>
 </head>
 <body>
-    <div class="responsive-iframe-container">
-        <iframe class="responsive-iframe" src="https://lookerstudio.google.com/embed/reporting/0f6ee996-da76-4518-9289-291adb1dcdc9/page/p_gn84d88qjd" frameborder="0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+    <div class="container">
+        <iframe class="dashboard-iframe" src="https://lookerstudio.google.com/embed/reporting/0f6ee996-da76-4518-9289-291adb1dcdc9/page/p_gn84d88qjd" frameborder="0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
     </div>
 </body>
 </html>
-
 
 
 
