@@ -3,33 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard de Looker Studio Responsivo</title>
+    <title>Informe Looker Studio a pantalla completa</title>
     <style>
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
-            background-color: #f4f4f4;
+            overflow: hidden;
         }
-        .container {
+        #container {
             width: 100%;
             height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            position: relative;
+            overflow: hidden;
         }
-        .dashboard-iframe {
-            width: 90%;
-            max-width: 800px;
-            height: 600px;
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             border: 0;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <iframe class="dashboard-iframe" src="https://lookerstudio.google.com/embed/reporting/0f6ee996-da76-4518-9289-291adb1dcdc9/page/p_gn84d88qjd" frameborder="0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+    <div id="container">
+        <iframe src="https://lookerstudio.google.com/embed/reporting/0f6ee996-da76-4518-9289-291adb1dcdc9/page/JcM0D" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
     </div>
+    <script>
+        document.body.addEventListener('wheel', function(e) {
+            if (e.ctrlKey) {
+                e.preventDefault();
+                var scale = document.body.style.zoom || 1;
+                if (e.deltaY < 0) {
+                    document.body.style.zoom = parseFloat(scale) * 1.1;
+                } else {
+                    document.body.style.zoom = parseFloat(scale) / 1.1;
+                }
+            }
+        }, { passive: false });
+    </script>
 </body>
 </html>
 
